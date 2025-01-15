@@ -9,8 +9,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        main: {
+          light: "#697586",
+          DEFAULT: "#1D1D1D",
+        },
+        accent: {
+          100: "#F4F0FD",
+          DEFAULT: "#8C5CF1",
+        },
+        border: {
+          DEFAULT: "#9AA4B2",
+        },
+      },
+      container: {
+        center: true,
+        padding: "1.5rem",
+        screens: {
+          sm: "100%",
+          md: "100%",
+          lg: "872px",
+        },
+      },
+      fontFamily: {
+        "familjen-grotesk": ["Familjen Grotesk", "sans-serif"],
       },
     },
   },
