@@ -1,8 +1,18 @@
 import { FC } from "react";
+import { bcms } from './bcms-client';
+import { NewsArticleEntry, NewsArticleEntryMetaItem } from '../../bcms/types/ts';
 import Article, { ArticleProps } from "./components/article";
 import LanguageSwitch from "./components/lang-switch";
 
-const Home: FC = () => {
+const Home: FC = async () => {
+  const newsArticles = (await bcms.entry.getAll('News_Article')) as NewsArticleEntry[];
+
+    const items = newsArticles.map((newsArticle) => {
+        return newsArticle.meta.en as NewsArticleEntryMetaItem;
+    });
+
+    console.log(items)
+
   const articles: ArticleProps[] = [
     {
       title: "Working with Templates",
