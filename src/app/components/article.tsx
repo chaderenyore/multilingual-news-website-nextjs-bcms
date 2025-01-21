@@ -4,10 +4,10 @@ import { FC } from "react";
 export interface ArticleProps {
   title: string;
   slug: string;
-  description: string;
+  subheading: string;
 }
 
-const Article: FC<ArticleProps> = ({ title, description, slug }) => {
+const Article: FC<ArticleProps> = ({ title, subheading, slug }) => {
   return (
     <article>
       <Link
@@ -18,7 +18,7 @@ const Article: FC<ArticleProps> = ({ title, description, slug }) => {
           {title}
         </h2>
         <p className="text-main-light text-xs leading-[1.4] mb-3 lg:text-lg lg:leading-[1.4]">
-          {description}
+          {subheading}
         </p>
       </Link>
     </article>

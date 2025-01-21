@@ -4,7 +4,7 @@ import type { BCMSEntryStatuses } from '../status';
 export interface NewsArticleEntryMetaItem {
     title: string;
     slug: string;
-    subheading?: string;
+    subheading: string;
 }
 
 export interface NewsArticleEntryMeta {

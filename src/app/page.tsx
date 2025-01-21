@@ -5,40 +5,11 @@ import Article, { ArticleProps } from "./components/article";
 import LanguageSwitch from "./components/lang-switch";
 
 const Home: FC = async () => {
-  const newsArticles = (await bcms.entry.getAll('News_Article')) as NewsArticleEntry[];
+  const newsArticles = (await bcms.entry.getAll('news-article')) as NewsArticleEntry[];
 
     const items = newsArticles.map((newsArticle) => {
         return newsArticle.meta.en as NewsArticleEntryMetaItem;
-    });
-
-    console.log(items)
-
-  const articles: ArticleProps[] = [
-    {
-      title: "Working with Templates",
-      slug: "working-with-templates",
-      description:
-        "Templates in BCMS define the content structure. You use these structures to create entries. Templates can be either multi-entry or single-entry. For instance, a Home page template would be single-entry, while a Blog post template would be multi-entry.",
-    },
-    {
-      title: "Working with Entries",
-      slug: "working-with-entries",
-      description:
-        "Each entry in BCMS is a single record based on a template. The structure of an entry depends on the properties defined in its template. These properties will appear in the meta section of every entry. In addition to the meta section, each entry includes a content area where you can add rich text and widgets.",
-    },
-    {
-      title: "Working with Groups",
-      slug: "working-with-groups",
-      description:
-        "Groups in BCMS are reusable building blocks made up of multiple properties. You can include groups in any template, widget, or even within other groups. Like most BCMS properties, groups can also be used as arrays.",
-    },
-    {
-      title: "Working with Media",
-      slug: "working-with-media",
-      description:
-        "The media manager lets you store images, videos, and other files, with various ways to organize them using folders.",
-    },
-  ];
+    }); 
 
   return (
     <div>
@@ -56,8 +27,8 @@ const Home: FC = async () => {
       </div>
       <LanguageSwitch />
       <div className="grid grid-cols-1 gap-[18px] lg:gap-9">
-        {articles.map((article) => {
-          return <Article {...article} key={article.slug} />;
+        {items.map((item) => {
+          return <Article {...item} key={item.slug} />;
         })}
       </div>
     </div>
