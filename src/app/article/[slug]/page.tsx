@@ -136,7 +136,24 @@ import { bcms } from '../../bcms-client';
 import { NewsArticleEntry } from '../../../../bcms/types/ts';
 import ArticleClient from './ArticleClient';
 
-async function Page({ params }: { params: { slug: string } }) {
+// async function Page({ params }: { params: { slug: string } }) {
+//   const articles = await bcms.entry.getAll('news-article') as NewsArticleEntry[];
+//   const article = articles.find((e) => e.meta.en?.slug === params.slug);
+
+//   if (!article) {
+//     return <div>Article not found</div>;
+//   }
+
+//   return <ArticleClient article={article} />;
+// }
+
+// export default Page;
+
+type Props = {
+  params: { slug: string }
+}
+
+export default async function Page({ params }: Props) {
   const articles = await bcms.entry.getAll('news-article') as NewsArticleEntry[];
   const article = articles.find((e) => e.meta.en?.slug === params.slug);
 
@@ -146,5 +163,3 @@ async function Page({ params }: { params: { slug: string } }) {
 
   return <ArticleClient article={article} />;
 }
-
-export default Page;
